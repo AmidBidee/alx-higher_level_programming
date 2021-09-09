@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-islower = __import__('7-islower').islower
+
+
+def islower(c):
+    if ord(c) >= 97 <= 122:
+        return True
+    False
 
 
 def uppercase(str):
@@ -9,4 +14,4 @@ def uppercase(str):
             un = ord(ustr[i]) - 32
             uc = chr(un)
             ustr = ustr.replace(ustr[i], uc)
-    return print(ustr)
+    print(ustr)
