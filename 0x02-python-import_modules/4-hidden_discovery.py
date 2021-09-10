@@ -3,10 +3,10 @@
 if __name__ == '__main__':
     import hidden_4
 
-    l = dir(hidden_4)
-    l_len = len(l)
+    m_list = dir(hidden_4)
+    l_len = len(m_list)
     for i in range(l_len):
-        if l[i].startswith('_'):
+        if m_list[i].startswith('_'):
             continue
         else:
-            print(l[i])
+            print(m_list[i])
