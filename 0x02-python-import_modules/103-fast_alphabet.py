@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-low = 'abcdefghijklmnopqrstuvwxyz'
-print(low.upper())
+alp = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+print(alp)
