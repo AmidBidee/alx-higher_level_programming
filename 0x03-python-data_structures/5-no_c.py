@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-def l_to_str(l=[]):
+def l_to_str(list=[]):
     temp = ''
     for letter in l:
         temp += letter
     return temp
+
 
 def no_c(my_string):
     my_string = list(my_string)
@@ -12,4 +13,3 @@ def no_c(my_string):
             my_string[i] = ''
     my_string = l_to_str(my_string)
     return my_string
-
