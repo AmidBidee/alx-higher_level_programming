@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-def l_to_str(list=[]):
+def l_to_str(t_list=[]):
     temp = ''
-    for letter in l:
+    for letter in t_list:
         temp += letter
     return temp
 
