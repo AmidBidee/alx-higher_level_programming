@@ -3,6 +3,7 @@
 A simple square module
 """
 
+
 class Square:
     """ A simpe square class """
     def __init__(self, size=0):
