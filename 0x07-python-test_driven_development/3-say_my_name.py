@@ -13,8 +13,9 @@ def validate_args(**kwargs):
     for arg in kwargs:
         if type(kwargs[arg]) != str:
             raise TypeError(f'{arg} must be a string')
-    
+
     return True
+
 
 def say_my_name(first_name, last_name=""):
     if validate_args(first_name=first_name, last_name=last_name):

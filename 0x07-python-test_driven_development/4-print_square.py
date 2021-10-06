@@ -2,8 +2,9 @@
 """
 This module contains
 
-print_square: prints a square with the character # if validate_args returns True
-validate_args: validates arguments 
+print_square: prints a square with the character #
+              if validate_args returns True
+validate_args: validates arguments
 """
 
 
@@ -22,7 +23,7 @@ def validate_args(**kwargs):
 
 
 def print_square(size):
-    """ 
+    """
     Prints square with the character # if validate_args returns True
     of size = size
     """
@@ -31,4 +32,3 @@ def print_square(size):
         s = int(size)
         for level in range(s):
             print('#' * s)
-

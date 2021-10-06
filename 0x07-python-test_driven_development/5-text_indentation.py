@@ -2,8 +2,8 @@
 """
 This module contains
 
-text_indentation: prints a text with 2 new lines 
-                    after each of these characters: ., ? and :
+text_indentation: prints a text with 2 new lines
+                  after each of these characters: ., ? and :
 validate_args: validates args
 """
 
@@ -13,8 +13,9 @@ def validate_args(**kwargs):
     for arg in kwargs:
         if type(kwargs[arg]) != str:
             raise TypeError("Something")
-    
+
     return True
+
 
 def text_indentation(text):
     """

@@ -1,0 +1,45 @@
+``0-add_integer`` module external tests
+=======================================
+
+Testing ``add_integer``
+-----------------------
+
+The add_integer function takes in two integers or float or a mixture of both
+
+Import function:
+
+	>>> add = __import__('0-add_integer').add_integer
+
+Usage:
+
+	>>> add(5, 5)
+	10
+
+	>>> add(5.0, 5.0)
+	10
+
+	>>> add(10, 2.2)
+	12
+
+You can only pass in integers or floats:
+	>>> try:
+	...	print(add(4, "School"))
+	... except Exception as e:
+	...	print(e)
+	...
+	b must be an integer
+
+        >>> try:
+        ...     print(add(4, [4,5,6]))
+        ... except Exception as e:
+        ...     print(e)
+        ...
+        b must be an integer
+
+        >>> try:
+        ...     print(add(4, 5j))
+        ... except Exception as e:
+        ...     print(e)
+        ...
+        b must be an integer
+	
