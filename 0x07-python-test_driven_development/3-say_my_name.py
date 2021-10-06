@@ -19,5 +19,6 @@ def validate_args(**kwargs):
 
 
 def say_my_name(first_name, last_name=""):
+    """ prints My name is <first name> <last name """
     if validate_args(first_name=first_name, last_name=last_name):
         print(f"My name is {first_name} {last_name}")
