@@ -1,0 +1,198 @@
+``2-matrix_divide`` module external tests
+=======================================
+
+Testing ``matrix_div``
+-----------------------
+
+The max_divided function, divides all elements of a matrix by a number
+
+Import function:
+
+        >>> matrix_div = __import__('2-matrix_divided').matrix_divided
+
+Usage:
+	>>> matrix = [[1, 2, 3],[4, 5, 6]]
+
+	>>> print(matrix_div(matrix, 3))
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+	>>> print(matrix)
+	[[1, 2, 3], [4, 5, 6]]
+
+	>>> mx = [1,3,4,[2,4,3]]
+	>>> try:
+	... 	print(matrix_div(mx, 2))
+	... except Exception as e:
+	...	print(e)
+	matrix must be a matrix (list of lists) of integers/floats
+
+	>>> mat = [[1,3,4,4],[2,4,3]]
+        >>> try:
+        ...     print(matrix_div(mat, 2))
+        ... except Exception as e:
+        ...     print(e)
+        Each row of the matrix must have the same size
+
+	>>> mat = [[1,3,4],[2,4,3]]
+        >>> try:
+        ...     print(matrix_div(mat, 'div'))
+        ... except Exception as e:
+        ...     print(e)
+        div must be a number
+
+	>>> mat = [[1,3,4],[2,4,3]]
+        >>> try:
+        ...     print(matrix_div(mat, 0))
+        ... except Exception as e:
+        ...     print(e)
+	division by zero
+
+	>>> mat = [[2,4,6,8], [10,12,14,16]]
+        >>> try:
+        ...     print(matrix_div(mat, 2))
+	...	print(mat)
+        ... except Exception as e:
+        ...     print(e)
+        [[1.0, 2.0, 3.0, 4.0], [5.0, 6.0, 7.0, 8.0]]
+	[[2, 4, 6, 8], [10, 12, 14, 16]]
+
+        >>> m = [[1, 2, 3], [4, 5, 6]]
+        >>> new = matrix_div(m, 3)
+        >>> new
+        [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+        >>> new == m
+        False
+
+        >>> m = [[1]]
+        >>> matrix_div(m, 2)
+        [[0.5]]
+
+        >>> m = [[1, 2, 3], [4, 5, 6]]
+        >>> matrix_div(m, float("inf"))
+        [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+        >>> matrix_div([], 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> matrix_div([[]], 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> matrix_div([[], []], 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> m = [[1, 2, 3], [4, 5, "a"]]
+        >>> matrix_div(m, 3)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> m = [[1, 2], [3, 4, 5]]
+        >>> matrix_div(m, 3)
+        Traceback (most recent call last):
+            ...
+        TypeError: Each row of the matrix must have the same size
+
+        >>> m = [[1, 2, 3], [4, 5, 6]]
+        >>> matrix_div(m)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix_div() missing 1 required positional argument: 'div'
+
+        >>> matrix_div([[1, 2, 3], [4, 5, 6]], 2, 3)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix_div() takes 2 positional arguments but 3 were given
+
+        >>> matrix_div(1, 2, 3)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix_div() takes 2 positional arguments but 3 were given
+
+        >>> m = [[1, 2], [3, 4]]
+        >>> matrix_div(m, 0)
+        Traceback (most recent call last):
+            ...
+        ZeroDivisionError: division by zero
+
+        >>> matrix_div([[1, 2], [3, 4]], "a")
+        Traceback (most recent call last):
+            ...
+        TypeError: div must be a number
+
+        >>> matrix_div([[1, 2], [3, 4]], [1])
+        Traceback (most recent call last):
+            ...
+        TypeError: div must be a number
+
+        >>> matrix_div(0, [[1, 2], [3, 4]])
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> matrix_div(("tup", 2), 1)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> matrix_div([(1, 2), (3, 4)], 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> matrix_div([[1]], None)
+        Traceback (most recent call last):
+            ...
+        TypeError: div must be a number
+
+        >>> matrix_div([[1, 2, 3], [4, 5, 6]], True)
+        Traceback (most recent call last):
+            ...
+        TypeError: div must be a number
+
+        >>> matrix_div([[1, 2, 3], [4, 5, 6]], False)
+        Traceback (most recent call last):
+            ...
+        TypeError: div must be a number
+
+        >>> m = [[1, 2, 3], [4, 5, ("tup", 2)]]
+        >>> matrix_div(m, 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> m = [[1, 2, 3], [4, 5, [1, 2, 3]]]
+        >>> matrix_div(m, 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> m = [[1, 2, 3], [4, 5, {1: "hi"}]]
+        >>> matrix_div(m, 2)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> m = [['a', 'b'], ['c', 'd']]
+        >>> matrix_div(m, 4)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+        >>> m = [['a', 'b'], ['c', 'd', 'e']]
+        >>> matrix_div(m, 4)
+        Traceback (most recent call last):
+            ...
+        TypeError: Each row of the matrix must have the same size
+
+        >>> m = [[1, [2, 3]], [2, [3, 4]]]
+        >>> matrix_div(m, 3)
+        Traceback (most recent call last):
+            ...
+        TypeError: matrix must be a matrix (list of lists) of integers/floats
