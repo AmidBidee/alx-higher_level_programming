@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 write_file: Writes a text to file.
 """
