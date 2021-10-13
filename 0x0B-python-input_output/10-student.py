@@ -3,7 +3,8 @@
 student module
 
 Student(first_name, last_name): Student object class
-[class].to_json(attrs=None): returns dictionary represention of student instance
+[class].to_json(attrs=None): returns dictionary represention
+of student instance
 """
 
 
