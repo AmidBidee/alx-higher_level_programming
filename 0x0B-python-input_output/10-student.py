@@ -29,3 +29,10 @@ class Student:
                     _dict[attr] = self.__dict__[attr]
             return _dict
         return self.__dict__
+
+    def _to_json(self, attrs=None):
+        _dict = self.__dict__
+        if attrs:
+            filt = filter(self._to_json, self.__dict__)
+            return filt
+        return self.__dict__
