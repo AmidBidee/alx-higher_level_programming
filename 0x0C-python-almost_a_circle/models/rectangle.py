@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Rectangle module
+'''Rectangle module
 
 class: Rectangle
     __init__(widget, height, x=0, y=0)
@@ -12,8 +11,7 @@ methods:
     Rectangle.width(self, value)
 
     Rectangle.height(self, value)
-"""
-
+'''
 from .base import Base
 
 
@@ -41,6 +39,13 @@ class Rectangle(Base):
 
         Rectangle.__init__(self, width, height x=0, y=0)
             instatiate a Rectangle object with a width and height
+        Initializes a new rectangle object.
+        Args:
+            width (int): The width of this rectangle.
+            height (int): The height of this rectangle.
+            x (int): The horizontal position of this rectangle.
+            y (int): The vertical position of this rectangle.
+            id (int): The id of this rectangle.
         """
 
         self.validate_args(width=width, height=height, x=x, y=y)
