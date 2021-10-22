@@ -27,51 +27,68 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ Return width """
+        """ 
+        Return width
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """ Sets the width """
+        """
+        Sets the width
+        """
         self.validate_args(width=value)
         self.__width = value
 
     @property
     def height(self):
-        """ Return height """
+        """
+        Return height
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """ Sets the height """
+        """
+        Sets the height
+        """
         self.validate_args(height=value)
         self.__height = value
 
     @property
     def x(self):
-        """ Returns x """
+        """
+        Returns x
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
-        """ Sets x """
+        """
+        Sets x 
+        """
         self.validate_args(x=value)
         self.__x = value
 
     @property
     def y(self):
-        """ Returns y """
+        """ 
+        Returns y 
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
-        """ Sets y """
+        """ 
+        Sets y 
+        """
         self.validate_args(y=value)
         self.__y = value
 
     def validate_args(self, **kwargs):
         """
-        input validator
+        Argument 
+        validator
         """
         for arg in kwargs:
             if type(kwargs[arg]) != int:

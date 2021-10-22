@@ -5,7 +5,7 @@ rectangle tests
 import unittest
 # models
 from models.rectangle import Rectangle
-
+from models.base import Base
 
 class RectangleTests(unittest.TestCase):
 
