@@ -1,41 +1,27 @@
 #!/usr/bin/python3
-"""Unittest for Base class"""
+"""
+Base test module
+"""
 
-import json
-import os
-from os import path
 import unittest
+# model
 from models.base import Base
-from models.rectangle import Rectangle
-#from models.square import Square
 
 
-class TestBaseClass(unittest.TestCase):
-    """This class allows for testing of Base class"""
-    def test_singleinstancecreationwithoutid(self):
-        """This function tests for multiple instance creation"""
+class BaseClasstests(unittest.TestCase):
+    def setUp(self):
+        self.base = Base()
+
+    def test_default_ids(self):
+        base2 = Base()
+        base3 = Base()
+        self.assertEqual(self.base.id, 1)
+        self.assertEqual(base2.id, 2)
+        self.assertEqual(base3.id, 3)
+
+    def test_custom_id(self):
+        c_base = Base(4)
+        self.assertEqual(c_base.id, 4)
+
+    def tearDown(self):
         Base.reset_objects()
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
-
-    def test_multipleinstancecreationwithoutid(self):
-        """This function tests for multiple instance creation"""
-        Base.reset_objects()
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
-
-    def test_instancecreationwithid(self):
-        """This function tests for 1 instance creation with id"""
-        Base.reset_objects()
-        b1 = Base(12)
-        self.assertEqual(b1.id, 12)
-
-    def test_instancecreationwithstringid(self):
-        """This function tests for one instance creation with id"""
-        Base.reset_objects()
-        b1 = Base("foo")
-        self.assertEqual(b1.id, "foo")

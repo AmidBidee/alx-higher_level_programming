@@ -16,6 +16,8 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Class constructor """
 
+        self.validate_args(width=width, height=height, x=x, y=y)
+
         self.__width = width
         self.__height = height
         self.__x = x
@@ -31,6 +33,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ Sets the width """
+        self.validate_args(width=value)
         self.__width = value
 
     @property
@@ -41,6 +44,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ Sets the height """
+        self.validate_args(height=value)
         self.__height = value
 
     @property
@@ -51,6 +55,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ Sets x """
+        self.validate_args(x=value)
         self.__x = value
 
     @property
@@ -61,18 +66,20 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ Sets y """
+        self.validate_args(y=value)
         self.__y = value
 
-    def validate(self, prop, val):
+    def validate_args(self, **kwargs):
         """
-        This is a helper class for validating
-         inputs to private instance attributes
+        input validator
         """
+        for arg in kwargs:
+            if type(kwargs[arg]) != int:
+                raise TypeError(f'{arg} must be an integer')
 
-        if(type(val) is not int):
-            raise TypeError('{} must be an integer'.format(prop))
-        if (prop in ['x', 'y'] and val < 0):
-            raise ValueError('{} must be >= 0'.format(prop))
-        elif (prop in ['height', 'width'] and val <= 0):
-            raise ValueError('{} must be > 0'.format(prop))
-        return val
+            if arg in ('width', 'height') and kwargs[arg] <= 0:
+                raise ValueError(f'{arg} must be > 0')
+
+            if arg in ('x', 'y') and kwargs[arg] < 0:
+                raise ValueError(f'{arg} must be >= 0')
+        return True

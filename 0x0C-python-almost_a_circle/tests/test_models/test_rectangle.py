@@ -1,52 +1,89 @@
-#!/usr/bin/python3
-"""Unittest for Rectangle class"""
-
+"""
+rectangle tests
+"""
 
 import unittest
+# models
 from models.rectangle import Rectangle
-from models.base import Base
-import io
-import contextlib
 
 
-class TestBaseClass(unittest.TestCase):
-    """This class allows for testing of Base class"""
+class RectangleTests(unittest.TestCase):
 
-    def test_Rectangleinheritance(self):
-        """This function tests that rectangle inherits from Base"""
-        Rectangle.reset_objects()
-        self.assertEqual(issubclass(Rectangle, Base), True)
+    def setUp(self):
+        self.rec = Rectangle(10, 2, 0, 0)
 
-    def test_objectinheritance(self):
-        """This function tests that rectangle inherits from Base"""
-        Rectangle.reset_objects()
-        r1 = Rectangle(1, 1)
-        self.assertEqual(isinstance(r1, Rectangle), True)
+    def test_init(self):
+        self.assertEqual(self.rec.id, 4)
 
-    def test_errorfornoarguments(self):
-        """This function tests that Typeerror is thrown when 0 arguments"""
-        Rectangle.reset_objects()
+    def test_dimension(self):
+        self.assertEqual((self.rec.width, self.rec.height), (10, 2))
+
+    def test_axis(self):
+        self.assertEqual((self.rec.x, self.rec.y), (0, 0))
+
+    def test_validations(self):
+        self.assertTrue(Rectangle.validate_args(self.rec, width=15, height=10, x=0, y=15))
         with self.assertRaises(TypeError) as e:
-            r1 = Rectangle()
-        self.assertEqual(
-            str(e.exception),
-            "__init__() missing 2 required positional arguments: 'width' and" +
-            " 'height'")
+            Rectangle.validate_args(
+                    self.rec,
+                    width='15',
+                    height='10',
+                    y=15.5, 
+                    x=14.5
+                    )
+        exception = str(e.exception)
+        self.assertEqual(exception, 'width must be an integer')
 
-    def test_errorfor1argument(self):
-        """This function tests that Typeerror is thrown when 1 argument"""
-        Rectangle.reset_objects()
-        with self.assertRaises(TypeError) as e:
-            r1 = Rectangle(1)
-        self.assertEqual(
-            str(e.exception),
-            "__init__() missing 1 required positional argument: 'height'")
+        with self.assertRaises(ValueError) as e:
+            self.rec.validate_args(
+                    width=15, 
+                    height=-10, 
+                    x='0',
+                    y='15'
+                    )
+        exception = str(e.exception)
+        self.assertEqual(exception, 'height must be > 0')
 
-    def test_errorfortoomanyarguments(self):
-        """This function tests that Valueerror is thrown when extra args"""
-        Rectangle.reset_objects()
         with self.assertRaises(TypeError) as e:
-            r1 = Rectangle(1, 2, 3, 4, 5, 7)
-        self.assertEqual(
-            str(e.exception),
-            "__init__() takes from 3 to 6 positional arguments but 7 were given")
+            Rectangle.validate_args(self.rec, width=10, height=5.5)
+        exception = str(e.exception)
+        self.assertEqual(exception, 'height must be an integer')
+
+        with self.assertRaises(TypeError) as e:
+                self.rec.width = '45'
+        exception = str(e.exception)
+        self.assertEqual(exception, 'width must be an integer')
+
+        with self.assertRaises(TypeError) as e:
+                self.rec.height = False
+        exception = str(e.exception)
+        self.assertEqual(exception, 'height must be an integer')
+
+        with self.assertRaises(TypeError) as e:
+                self.rec.x = True
+        exception = str(e.exception)
+        self.assertEqual(exception, 'x must be an integer')
+
+        with self.assertRaises(TypeError) as e:
+                self.rec.y = '0'
+        exception = str(e.exception)
+        self.assertEqual(exception, 'y must be an integer')
+
+        with self.assertRaises(ValueError) as e:
+                self.rec.width = 0
+        exception = str(e.exception)
+        self.assertEqual(exception, 'width must be > 0')
+
+        with self.assertRaises(ValueError) as e:
+                self.rec.x = -10
+        exception = str(e.exception)
+        self.assertEqual(exception, 'x must be >= 0')
+
+    def test_dimension_setters(self):
+        self.rec.width = 15
+        self.rec.height = 10
+        self.assertEqual((self.rec.width, self.rec.height), (15, 10))
+
+    def tearDown(self):
+        Rectangle.id = 0
+        del(self.rec)

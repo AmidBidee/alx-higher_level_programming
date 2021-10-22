@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod u+x *.py
+chmod u+x *.py *.sh
