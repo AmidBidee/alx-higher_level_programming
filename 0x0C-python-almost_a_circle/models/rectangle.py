@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 '''Rectangle module
 
 class: Rectangle
@@ -12,7 +13,7 @@ methods:
 
     Rectangle.height(self, value)
 '''
-from base import Base
+Base =  __import__('base').Base
 
 
 class Rectangle(Base):
@@ -21,7 +22,11 @@ class Rectangle(Base):
     creates a Rectangle object instance with a width and height
 
     attributes:
-        private -->  __width, __height, __x, __y
+        private -->  
+        __width: width
+        __height: height
+        __x: x
+        __y: y
 
     Methods:
         validate_args(self, *kwargs):
