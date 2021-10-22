@@ -13,7 +13,7 @@ class RectangleTests(unittest.TestCase):
         self.rec = Rectangle(10, 2, 0, 0)
 
     def test_init(self):
-        self.assertEqual(self.rec.id, 4)
+        self.assertEqual(self.rec.id, 1)
 
     def test_dimension(self):
         self.assertEqual((self.rec.width, self.rec.height), (10, 2))
@@ -84,6 +84,16 @@ class RectangleTests(unittest.TestCase):
         self.rec.height = 10
         self.assertEqual((self.rec.width, self.rec.height), (15, 10))
 
+    @unittest.skipUnless('area' in dir(Rectangle), 'area not implemented yet')
+    def test_area(self):
+        rec2 = Rectangle(3, 2)
+        rec3 = Rectangle(2, 10)
+        rec4 = Rectangle(8, 7, 0, 0, 12)
+
+        self.assertEqual(rec2.area(), 6)
+        self.assertEqual(rec3.area(), 20)
+        self.assertEqual(rec4.area(), 56)
+
     def tearDown(self):
-        Rectangle.id = 0
+        Base.reset_objects()
         del(self.rec)

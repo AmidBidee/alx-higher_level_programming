@@ -12,18 +12,17 @@ methods:
     Rectangle.width(self, value)
 
     Rectangle.height(self, value)
-    
 """
 
 from .base import Base
 
 
 class Rectangle(Base):
-    """ 
+    """
     Rectangle object class, inherits from the from base.Base class
     creates a Rectangle object instance with a width and height
 
-    attributes:  
+    attributes:
         private -->  __width, __height, __x, __y
 
     Methods:
@@ -142,3 +141,12 @@ class Rectangle(Base):
             if arg in ('x', 'y') and kwargs[arg] < 0:
                 raise ValueError(f'{arg} must be >= 0')
         return True
+
+    def area(self):
+        """
+        public instance method -->
+            area(self):
+                should return the area value of the rectangle object
+        """
+        value = self.__width * self.__height
+        return value
