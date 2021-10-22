@@ -1,6 +1,18 @@
 #!/usr/bin/python3
 """
 Rectangle module
+
+class: Rectangle
+    __init__(widget, height, x=0, y=0)
+
+methods:
+
+    Rectangle.validate_args(self, **kwargs)
+
+    Rectangle.width(self, value)
+
+    Rectangle.height(self, value)
+    
 """
 
 from .base import Base
@@ -25,7 +37,12 @@ class Rectangle(Base):
     __y = 0
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ Class constructor """
+        """
+        Class constructor
+
+        Rectangle.__init__(self, width, height x=0, y=0)
+            instatiate a Rectangle object with a width and height
+        """
 
         self.validate_args(width=width, height=height, x=x, y=y)
 
