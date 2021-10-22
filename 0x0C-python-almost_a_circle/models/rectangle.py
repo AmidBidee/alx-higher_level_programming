@@ -27,16 +27,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ 
-        Return width
-        """
+        """ Return width """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """
-        Sets the width
-        """
+        """ Sets the width """
         self.validate_args(width=value)
         self.__width = value
 
@@ -65,29 +61,29 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """
-        Sets x 
+        Sets x
         """
         self.validate_args(x=value)
         self.__x = value
 
     @property
     def y(self):
-        """ 
-        Returns y 
+        """
+        Returns y
         """
         return self.__y
 
     @y.setter
     def y(self, value):
-        """ 
-        Sets y 
+        """
+        Sets y
         """
         self.validate_args(y=value)
         self.__y = value
 
     def validate_args(self, **kwargs):
         """
-        Argument 
+        Argument
         validator
         """
         for arg in kwargs:
