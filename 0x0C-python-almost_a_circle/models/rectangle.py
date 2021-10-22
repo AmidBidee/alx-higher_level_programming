@@ -7,7 +7,18 @@ from .base import Base
 
 
 class Rectangle(Base):
-    """ Rectangle class """
+    """ 
+    Rectangle object class, inherits from the from base.Base class
+    creates a Rectangle object instance with a width and height
+
+    attributes:  
+        private -->  __width, __height, __x, __y
+
+    Methods:
+        validate_args(self, *kwargs):
+                validates the arguments passed in, returns true if
+                all requirements are passed and raises an exception if not
+    """
     __width = 0
     __height = 0
     __x = 0
@@ -27,26 +38,36 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ Return width """
+        """
+        Retrieves the value of the private instance attribute [__width]
+        and returns it
+        attr: self.__width
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """ Sets the width """
+        """
+        assigns value to the private instance attribute [__width]
+        if value is validated and self.validate_args(**kwargs) returns True
+        """
         self.validate_args(width=value)
         self.__width = value
 
     @property
     def height(self):
         """
-        Return height
+        Retrieves the value of the private instance attribute [__height]
+        and returns it
+        attr: self.__height
         """
         return self.__height
 
     @height.setter
     def height(self, value):
         """
-        Sets the height
+        assigns the value to the private instance attribute [__height]
+        if the value is validated and self.validate_args(**kwargs) returns True
         """
         self.validate_args(height=value)
         self.__height = value
@@ -54,14 +75,17 @@ class Rectangle(Base):
     @property
     def x(self):
         """
-        Returns x
+        Retrieves the value of the private instance attribute [__x]
+        and returns it
+        attr: self.__x
         """
         return self.__x
 
     @x.setter
     def x(self, value):
         """
-        Sets x
+        assigns the value to the private instance attribute [__x]
+        if the value is validated and self.validate_args(**kwargs) returns True
         """
         self.validate_args(x=value)
         self.__x = value
@@ -69,22 +93,27 @@ class Rectangle(Base):
     @property
     def y(self):
         """
-        Returns y
+        Retrieves the value of the private instance attribute [__y]
+        and returns it
+        attr: self.__y
         """
         return self.__y
 
     @y.setter
     def y(self, value):
         """
-        Sets y
+        ssigns the value to the private instance attribute [__y]
+        if the value is validated and self.validate_args(**kwargs) returns True
         """
         self.validate_args(y=value)
         self.__y = value
 
     def validate_args(self, **kwargs):
         """
-        Argument
-        validator
+        public instance method -->
+        validate_args(self, *kwargs):
+                validates the arguments passed in, returns true if
+                all requirements are passed and raises an exception if not
         """
         for arg in kwargs:
             if type(kwargs[arg]) != int:
