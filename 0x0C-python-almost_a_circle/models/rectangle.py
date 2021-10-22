@@ -12,7 +12,7 @@ methods:
 
     Rectangle.height(self, value)
 '''
-from .base import Base
+from base import Base
 
 
 class Rectangle(Base):
