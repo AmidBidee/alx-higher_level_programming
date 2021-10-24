@@ -4,6 +4,8 @@ This module represents the base class for all
 subsequent classes in this package
 """
 
+import json
+
 
 class Base:
     """
@@ -30,3 +32,11 @@ class Base:
         Resets number of objects for testing
         """
         Base.__nb_objects = 0
+
+    def to_json_string(list_dictionaries):
+        if list_dictionaries:
+            if type(list_dictionaries) != list:
+                raise TypeError("list_dictionaries must be a list")
+            json_dictionaries = json.dumps(list_dictionaries)
+            return json_dictionaries
+        return '[]'

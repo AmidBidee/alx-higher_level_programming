@@ -13,7 +13,7 @@ methods:
 
     Rectangle.height(self, value)
 '''
-Base =  __import__('base').Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -134,6 +134,18 @@ class Rectangle(Base):
         self.validate_args(y=value)
         self.__y = value
 
+    def __width__(self, value):
+        self.width = value
+
+    def __height__(self, value):
+        self.height = value
+
+    def __x__(self, value):
+        self.x = value
+
+    def __y__(self, value):
+        self.y = value
+
     def validate_args(self, **kwargs):
         """
         public instance method -->
@@ -143,13 +155,13 @@ class Rectangle(Base):
         """
         for arg in kwargs:
             if type(kwargs[arg]) != int:
-                raise TypeError(f'{arg} must be an integer')
+                raise TypeError('{} must be an integer'.format(arg))
 
             if arg in ('width', 'height') and kwargs[arg] <= 0:
-                raise ValueError(f'{arg} must be > 0')
+                raise ValueError('{} must be > 0'.format(arg))
 
             if arg in ('x', 'y') and kwargs[arg] < 0:
-                raise ValueError(f'{arg} must be >= 0')
+                raise ValueError('{} must be >= 0'.format(arg))
         return True
 
     def area(self):
@@ -160,3 +172,73 @@ class Rectangle(Base):
         """
         value = self.__width * self.__height
         return value
+
+    def display(self):
+        """
+        displays the rectangle object with the width and height
+        using hashes(#), does not take x,y into consideration
+        """
+        width = self.__width
+        height = self.__height
+
+        for h in range(height):
+            for w in range(width):
+                print('#', end='')
+            print()
+
+    def update(self, *args, **kwargs):
+        """
+        updates attribute value
+        """
+        iattr = {
+                0: 'id',
+                1: 'width',
+                2: 'height',
+                3: 'x',
+                4: 'y',
+                }
+        kattr = [
+                'id',
+                'width',
+                'height',
+                'x',
+                'y',
+                ]
+        
+        if args:
+            i = 0
+            for arg in args:
+                if iattr[i] == 'id':
+                    self.validate_args(id=arg)
+                setattr(self, iattr[i], arg)
+                i += 1
+
+        if kwargs:
+            for arg in kwargs:
+                if arg in kattr:
+                    if arg == 'id':
+                        self.validate_args(id=kwargs[arg])
+                    setattr(self, arg, kwargs[arg])
+
+    def to_dictionary(self):
+        """
+        returns a dictionary representing the object
+        """
+        _dict = {}
+        attr_list = ['id', 'width', 'height', 'x', 'y']
+
+        for attr in attr_list:
+            _dict[attr] = getattr(self, attr)
+        return _dict
+
+    def __str__(self):
+        """
+        Returns a string representation of the object
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id,
+                self.__x,
+                self.__y,
+                self.__width,
+                self.__height
+                )
