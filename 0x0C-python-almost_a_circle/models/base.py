@@ -21,10 +21,10 @@ class Base:
             Args:
                 id: is used to manage objects
         """
-        Base.__nb_objects += 1
         if id is not None:
             self.id = id
         else:
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     def reset_objects():
@@ -33,6 +33,7 @@ class Base:
         """
         Base.__nb_objects = 0
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         if list_dictionaries:
             if type(list_dictionaries) != list:
@@ -40,3 +41,13 @@ class Base:
             json_dictionaries = json.dumps(list_dictionaries)
             return json_dictionaries
         return '[]'
+
+    def save_to_file(cls, list_objs):
+        if list_objs != None:
+            j_string = cls.to_json_string(list_objs)
+        else:
+            j_string = []
+        
+        f_name = cls.__name__
+        with open(f'{name}.json', 'w') as f:
+            json.dump(j_string, f)
