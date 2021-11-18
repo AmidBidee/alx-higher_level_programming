@@ -787,7 +787,7 @@ on"""
         """This function tests the to_dictionary function"""
         r1 = Rectangle(10, 2, 1, 9)
         r1_dictionary = r1.to_dictionary()
-        self.assertEqual(r1_dictionary, {'id': 2, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
+        self.assertEqual(r1_dictionary, {'id': 1, 'width': 10, 'height': 2, 'x': 1, 'y': 9})
 
     def test_updatewithdict(self):
         """This function tests the to_dictionary function"""
