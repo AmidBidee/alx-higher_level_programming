@@ -1,9 +1,9 @@
 #!/usr/bin/node
 const fs = require('fs');
 
-let fileA = process.argv[2];
-let fileB = process.argv[3];
-let fileC = process.argv[4];
+const fileA = process.argv[2];
+const fileB = process.argv[3];
+const fileC = process.argv[4];
 
 try {
   [fileA, fileB].forEach((f) => {
