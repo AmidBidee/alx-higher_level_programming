@@ -20,7 +20,8 @@ def select_states(u: str, passwd: str, name: str):
     # setup my connection and query
     host = "localhost"
     port = 3306
-    query_string = """SELECT * FROM states ORDER BY id ASC"""
+    order_field = "id"
+    query_string = f"""SELECT * FROM states ORDER BY {order_field} ASC"""
     db = MySQLdb.connect(host, u, passwd, name)
 
     # get cursor and execute query
