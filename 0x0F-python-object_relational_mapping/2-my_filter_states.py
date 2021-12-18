@@ -7,27 +7,19 @@ import sys
 import MySQLdb
 
 
-def search_state(u: str, passwd: str, name: str, search_string: str):
-    """
-    prints the name value that matches the argument inputed
+# executes srcipt
+if __name__ == '__main__':
 
-    Args:
-        u: str -> user to connect as
-        passwd: str -> user password
-        name: str -> database name
-        search: str -> search argument
-
-    Returns:
-        None
-    """
+    user, passwd, db_name, search_string = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 
     # setup db connection
     host = 'localhost'
-    db = MySQLdb.connect(host, u, passwd, name, port=3306)
+    port=3306
+    db = MySQLdb.connect(host=host, user, passwd, db_name, port=port)
     cur = db.cursor()
 
     # query database
-    query_string = """SELECT id, name 
+    query_string = """SELECT id, name
                     FROM states
                     WHERE name='{}'
                     ORDER BY id ASC""".format(search_string)
@@ -41,11 +33,3 @@ def search_state(u: str, passwd: str, name: str, search_string: str):
     cur.close()
     db.close()
 
-
-# executes srcipt
-if __name__ == '__main__':
-
-    lt = len(sys.argv)
-    u, p, n, s = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-
-    search_state(u, p, n, s)  # run function
