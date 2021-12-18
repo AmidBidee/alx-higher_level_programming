@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# add commit and pushes code
+git add * ; git commit -m 'fixes'; git push

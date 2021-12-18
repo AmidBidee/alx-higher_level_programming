@@ -25,7 +25,10 @@ def filter_state(u: str, passwd: str, name: str):
     cur = db.cursor()
 
     # query database
-    query_string = """ SELECT * FROM states WHERE name LIKE 'N%' """
+    query_string = """ SELECT id, name 
+                        FROM states 
+                        WHERE name LIKE 'N%' 
+                        ORDER BY id ASC"""
     cur.execute(query_string)
 
     # get and print results

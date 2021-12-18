@@ -25,7 +25,8 @@ def search_state(u: str, passwd: str, name: str, search_string: str):
     cur = db.cursor()
 
     # query database
-    query_string = """SELECT * FROM states
+    query_string = """SELECT id, name 
+                    FROM states
                     WHERE name='{}'
                     ORDER BY id ASC""".format(search_string)
     cur.execute(query_string)
