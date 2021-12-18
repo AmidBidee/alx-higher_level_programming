@@ -36,6 +36,9 @@ def search_state(u: str, passwd: str, name: str, search_string: str):
     for elem in result:
         print(elem, end='\n')
 
+    cur.close()
+    db.close()
+
 
 # executes srcipt
 if __name__ == '__main__':
