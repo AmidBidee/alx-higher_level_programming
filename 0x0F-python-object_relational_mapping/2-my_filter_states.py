@@ -3,6 +3,8 @@
 displays all values in the states table of
 the database where name matches the argument.
 """
+import sys
+import MySQLdb
 
 
 def search_state(u: str, passwd: str, name: str, search_string: str):
@@ -42,8 +44,6 @@ def search_state(u: str, passwd: str, name: str, search_string: str):
 
 # executes srcipt
 if __name__ == '__main__':
-    import sys
-    import MySQLdb
 
     lt = len(sys.argv)
     u, p, n, s = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
