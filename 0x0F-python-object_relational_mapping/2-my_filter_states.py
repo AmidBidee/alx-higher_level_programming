@@ -15,7 +15,7 @@ if __name__ == '__main__':
     # setup db connection
     host = 'localhost'
     port=3306
-    db = MySQLdb.connect(host=host, user, passwd, db_name, port=port)
+    db = MySQLdb.connect(host, user, passwd, db_name, port=port)
     cur = db.cursor()
 
     # query database
