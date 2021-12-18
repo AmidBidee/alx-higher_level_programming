@@ -21,7 +21,7 @@ def search_state(u: str, passwd: str, name: str, search_string: str):
 
     # setup db connection
     host = 'localhost'
-    db = MySQLdb.connect(host, u, passwd, name)
+    db = MySQLdb.connect(host, u, passwd, name, port=3306)
     cur = db.cursor()
 
     # query database
