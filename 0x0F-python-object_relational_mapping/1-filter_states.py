@@ -43,7 +43,6 @@ if __name__ == '__main__':
     import MySQLdb
 
     lt = len(sys.argv)
-    if lt >= 2:
-        u, p, n = sys.argv[1], sys.argv[2], sys.argv[3]
+    u, p, n = sys.argv[1], sys.argv[2], sys.argv[3]
 
     filter_state(u, p, n)  # run function

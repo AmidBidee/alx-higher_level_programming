@@ -43,7 +43,6 @@ if __name__ == '__main__':
     import MySQLdb
 
     lt = len(sys.argv)
-    if lt >= 2:
-        u, p, n, s = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    u, p, n, s = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 
     search_state(u, p, n, s)  # run function
