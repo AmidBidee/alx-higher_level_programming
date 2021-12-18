@@ -28,7 +28,8 @@ if __name__ == '__main__':
     # get and print results
     result = cur.fetchall()
     for elem in result:
-        print(elem, end='\n')
+        if elem[1] == search_string:
+            print(elem, end='\n')
 
     cur.close()
     db.close()
