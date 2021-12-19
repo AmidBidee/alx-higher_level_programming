@@ -10,11 +10,14 @@ import MySQLdb
 # executes srcipt
 if __name__ == '__main__':
 
-    user, passwd, db_name, search_string = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+    user, passwd, db_name, search_string = (sys.argv[1],
+                                            sys.argv[2],
+                                            sys.argv[3],
+                                            sys.argv[4])
 
     # setup db connection
     host = 'localhost'
-    port=3306
+    port = 3306
     db = MySQLdb.connect(host, user, passwd, db_name, port=port)
     cur = db.cursor()
 
@@ -33,4 +36,3 @@ if __name__ == '__main__':
 
     cur.close()
     db.close()
-

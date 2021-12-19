@@ -4,45 +4,33 @@
 lists all states with a name starting with N (upper N)
 from the database hbtn_0e_0_usa:
 """
+import sys
+import MySQLdb
 
 
-def filter_state(u: str, passwd: str, name: str):
-    """
-    lists states starting with 'N' from the database
+# executes srcipt
+if __name__ == '__main__':
 
-    Args:
-        u: str -> user to connect as
-        passwd: str -> user password
-        name: str -> database name
-
-    Returns:
-        None
-    """
+    u, passwd, name = sys.argv[1], sys.argv[2], sys.argv[3]
 
     # setup db connection
     host = 'localhost'
-    db = MySQLdb.connect(host, u, passwd, name)
+    port = 3306
+    db = MySQLdb.connect(host, u, passwd, name, port=port)
     cur = db.cursor()
 
     # query database
-    query_string = """ SELECT id, name 
-                        FROM states 
-                        WHERE name LIKE 'N%' 
+    query_string = """ SELECT id, name
+                        FROM states
+                        WHERE name LIKE 'N%'
                         ORDER BY id ASC"""
     cur.execute(query_string)
 
     # get and print results
     result = cur.fetchall()
     for elem in result:
-        print(elem, end='\n')
+        if elem[1][0] == 'N':
+            print(elem, end='\n')
 
-
-# executes srcipt
-if __name__ == '__main__':
-    import sys
-    import MySQLdb
-
-    lt = len(sys.argv)
-    u, p, n = sys.argv[1], sys.argv[2], sys.argv[3]
-
-    filter_state(u, p, n)  # run function
+    cur.close()
+    db.close()
