@@ -28,11 +28,14 @@ if __name__ == '__main__':
 
     # print result
     results = cur.fetchall()
-    for row in results:
-        if results.index(row) != 2:
-            print(row[0], end=', ')
-        else:
-            print(row[0], end='\n')
+    if len(results):
+        for row in results:
+            if results.index(row) != 2:
+                print(row[0], end=', ')
+            else:
+                print(row[0])
+    else:
+        print()
 
     # close db and connection
     cur.close()
