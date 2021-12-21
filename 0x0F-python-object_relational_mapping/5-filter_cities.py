@@ -28,9 +28,11 @@ if __name__ == '__main__':
 
     # print result
     results = cur.fetchall()
-    if len(results):
+
+    rl = len(results)
+    if rl:
         for row in results:
-            if results.index(row) != 2:
+            if results.index(row) != (rl-1):
                 print(row[0], end=', ')
             else:
                 print(row[0])
