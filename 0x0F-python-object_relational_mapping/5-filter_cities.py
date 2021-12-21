@@ -19,7 +19,7 @@ if __name__ == '__main__':
     cur = db.cursor()
 
     # query db
-    query_string = """SELECT cities.id, cities.name, states.name
+    query_string = """SELECT cities.name
                         FROM states
                         INNER JOIN cities ON states.id = cities.state_id
                         WHERE states.name = '{}'
@@ -29,7 +29,10 @@ if __name__ == '__main__':
     # print result
     results = cur.fetchall()
     for row in results:
-        print(row, end='\n')
+        if results.index(row) != 2:
+            print(row[0], end=', ')
+        else:
+            print(row[0], end='\n')
 
     # close db and connection
     cur.close()
