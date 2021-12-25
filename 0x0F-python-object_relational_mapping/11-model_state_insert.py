@@ -20,4 +20,4 @@ if __name__ == "__main__":
     session.add(ls)
     session.commit()
 
-    print(l.id)
+    print(ls.id)
