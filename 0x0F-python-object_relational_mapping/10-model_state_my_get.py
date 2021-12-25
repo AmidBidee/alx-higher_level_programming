@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-# Print State obj with 'name' passed as arg from db 'hbtn_0e_6_usa'
-# Script should take 4 args: username, pw, db name, and state name
-# Must use SQLAlchemy
+"""
+Print State obj with 'name' passed as arg from db 'hbtn_0e_6_usa'
+Script should take 4 args: username, pw, db name, and state name
+Must use SQLAlchemy
+"""
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
