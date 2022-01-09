@@ -4,13 +4,13 @@ Python script that fetches https://intranet.hbtn.io/status
 """
 import urllib.request as request
 
-url = 'https://intranet.hbtn.io/status'
 
 if __name__ == '__main__':
+    url = 'https://intranet.hbtn.io/status'
     req = request.Request(url)
     with request.urlopen(req) as response:
         res = response.read()
         print('Body response')
-        print(f'\t- {type(res)}')
-        print(f'\t- {res}')
-        print(f"\t- {res.decode('utf-8')}")
+        print('\t- {}'.format(type(res)))
+        print('\t- {}'.format(res))
+        print('\t- {}'.format(res.decode('utf-8')))
