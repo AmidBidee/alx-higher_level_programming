@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-"""
-add_attrinute module
-"""
-def add_attribute(obj, a, v):
-    """ add new attribute function """
-    res = getattr(obj, "__doc__", None)
-    if res is None:
-        setattr(obj, a, v)
+'''A module for manipulating objects.
+'''
+
+
+def add_attribute(obj, name, value):
+    '''Tries to add a new attribute to an object if possible.
+
+    Args:
+        obj (any): The object to modify.
+        name (str): The name of the attribute.
+        value (any): The value of the attribute.
+    '''
+    if ('__dict__' in dir(obj)) and (type(obj.__dict__) is dict):
+        obj.__dict__[name] = value
     else:
         raise TypeError("can't add new attribute")

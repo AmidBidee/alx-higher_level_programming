@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-"""
-BaseGeometry module
-"""
+'''A module for working with geometry.
+'''
+
+
 class BaseGeometry:
-    """ BaseGeometry object class """
+    '''The base class for all geometry objects.
+    '''
     def area(self):
-        """ propused area function """
-        raise Exception("area() is not implemented")
+        '''Computes the area of this geometry.
+
+        Returns:
+            float: The area of this geometry object.
+        '''
+        raise Exception('area() is not implemented')

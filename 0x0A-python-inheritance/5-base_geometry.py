@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""
-This module includes the BaseGeometry object class
-"""
+'''A module for working with geometry.
+'''
 
 
 class BaseGeometry:
-    """ Empty class """
+    '''The base class for all geometry objects.
+    '''
     pass

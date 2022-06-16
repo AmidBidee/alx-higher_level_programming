@@ -1,9 +1,15 @@
 #!/usr/bin/python3
-""" This module holds MyList object """
+'''A module containing a list subclass.
+'''
 
 
 class MyList(list):
-    """ MyList object class """
+    '''A list subclass.
+    '''
+
     def print_sorted(self):
-        """ A function that sorts and prints the inherited list """
-        print(sorted(self))
+        '''Prints this list in a sorted order.
+        '''
+        list_sorted = sorted(self)
+        print(list_sorted)
+        del list_sorted
