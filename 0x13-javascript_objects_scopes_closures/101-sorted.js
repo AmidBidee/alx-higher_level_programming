@@ -1,13 +1,13 @@
 #!/usr/bin/node
-const dict = require('./101-data').dict;
+const dict = require('./101-data.js').dict;
 
-const storage = {};
+const newDict = {};
 
-for (const item in dict) {
-  if (!storage[dict[item]]) {
-    storage[dict[item]] = [];
+Object.getOwnPropertyNames(dict).forEach(occurences => {
+  if (newDict[dict[occurences]] === undefined) {
+    newDict[dict[occurences]] = [occurences];
+  } else {
+    newDict[dict[occurences]].push(occurences);
   }
-  storage[dict[item]].push(item);
-}
-
-console.log(storage);
+});
+console.log(newDict);
