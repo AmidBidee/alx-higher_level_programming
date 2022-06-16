@@ -41,14 +41,14 @@ class Base:
             json_dictionaries = json.dumps(list_dictionaries)
             return json_dictionaries
         return '[]'
-        
+
     @classmethod
     def save_to_file(cls, list_objs):
         if list_objs != None:
             j_string = cls.to_json_string(list_objs)
         else:
             j_string = []
-        
+
         f_name = self.__name__
         with open(f'{name}.json', 'w') as f:
             json.dump(j_string, f)

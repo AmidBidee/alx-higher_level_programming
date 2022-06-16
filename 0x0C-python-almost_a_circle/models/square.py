@@ -23,7 +23,7 @@ class Square(Rectangle):
         to_dict[inherited]: Returns dictionary represention of objects
         update[inherited]: updates object attribute value
     """
-    
+
     def __init__(self, size, x=0, y=0, id=None):
         """
         Instantiates a square instance with the following args;
@@ -53,17 +53,17 @@ class Square(Rectangle):
         updates attribute value
         """
         iattr = {
-                0: 'id',
-                1: 'size',
-                2: 'x',
-                3: 'y',
-                }
+            0: 'id',
+            1: 'size',
+            2: 'x',
+            3: 'y',
+        }
         kattr = [
-                'id',
-                'size',
-                'x',
-                'y',
-                ]
+            'id',
+            'size',
+            'x',
+            'y',
+        ]
 
         if args:
             i = 0
@@ -96,9 +96,9 @@ class Square(Rectangle):
         Returns a string representation of the object
         """
         return "[Square] ({}) {}/{} - {}".format(
-                self.id,
-                self.x,
-                self.y,
-                self.width,
-                self.size,
-                )
+            self.id,
+            self.x,
+            self.y,
+            self.width,
+            self.size,
+        )

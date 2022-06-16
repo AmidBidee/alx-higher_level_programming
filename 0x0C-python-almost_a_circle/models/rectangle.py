@@ -191,20 +191,20 @@ class Rectangle(Base):
         updates attribute value
         """
         iattr = {
-                0: 'id',
-                1: 'width',
-                2: 'height',
-                3: 'x',
-                4: 'y',
-                }
+            0: 'id',
+            1: 'width',
+            2: 'height',
+            3: 'x',
+            4: 'y',
+        }
         kattr = [
-                'id',
-                'width',
-                'height',
-                'x',
-                'y',
-                ]
-        
+            'id',
+            'width',
+            'height',
+            'x',
+            'y',
+        ]
+
         if args:
             i = 0
             for arg in args:
@@ -236,9 +236,9 @@ class Rectangle(Base):
         Returns a string representation of the object
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-                self.id,
-                self.__x,
-                self.__y,
-                self.__width,
-                self.__height
-                )
+            self.id,
+            self.__x,
+            self.__y,
+            self.__width,
+            self.__height
+        )
