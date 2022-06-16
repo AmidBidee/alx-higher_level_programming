@@ -22,7 +22,7 @@ class Rectangle(Base):
     creates a Rectangle object instance with a width and height
 
     attributes:
-        private -->  
+        private -->
         __width: width
         __height: height
         __x: x

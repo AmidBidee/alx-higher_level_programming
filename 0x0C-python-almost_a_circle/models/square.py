@@ -34,7 +34,8 @@ class Square(Rectangle):
             y(int): y value
             id(int): id of object
 
-        __init__() calls the super class .__init__() this initializes the square to inherits
+        __init__() calls the super class .__init__()
+        this initializes the square to inherits
             the it's object
         """
         super().__init__(width=size, height=size, x=x, y=y, id=id)

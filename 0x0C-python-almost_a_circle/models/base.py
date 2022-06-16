@@ -44,7 +44,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        if list_objs != None:
+        if list_objs is not None:
             j_string = cls.to_json_string(list_objs)
         else:
             j_string = []
